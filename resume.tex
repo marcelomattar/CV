@@ -1,0 +1,121 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Author:
+% Claud D. Park <posquit0.bj@gmail.com>
+% http://www.posquit0.com
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Configuration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Themes: Awesome-CV
+\documentclass[11pt, a4paper]{awesome-cv}
+
+%%% Override a directory location for fonts(default: 'fonts/')
+\fontdir[fonts/]
+
+%%% Configure a directory location for sections
+\newcommand*{\sectiondir}{sections/}
+
+%%% Override color
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+%% Color for highlight
+% Define your custom color if you don't like awesome colors
+%\colorlet{awesome}{awesome-red}
+\colorlet{awesome}{awesome-myred}
+%\colorlet{awesome}{awesome-darkblue}
+%\definecolor{awesome}{HTML}{CA63A8}
+%% Colors for text
+%\definecolor{darktext}{HTML}{414141}
+%\definecolor{text}{HTML}{414141}
+%\definecolor{graytext}{HTML}{414141}
+%\definecolor{lighttext}{HTML}{414141}
+
+%%% Override a separator for social informations in header(default: ' | ')
+%\headersocialsep[\quad\textbar\quad]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     3rd party packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Needed to divide into several files
+\usepackage{import}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Personal Data
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Essentials
+\name{Marcelo G.}{Mattar}
+\address{}
+%\mobile{(+82) 10-9030-1843} 
+%%% Social
+\email{marcelomattar@gmail.com}
+\homepage{www.marcelomattar.com}
+\github{marcelomattar}
+\linkedin{mgmattar}
+%%% Optionals
+\position{Neuroscience{\enskip\cdotp\enskip}Statistics{\enskip\cdotp\enskip}Electrical Engineering}
+%\quote{``Make the change that you want to see in the world."}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Publications
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Multibib is a LaTeX package that can be used to create multiple bibliographies in a paper
+% \newcites creates multiple headings and place appropriate citations under each heading. The first argument refers to the type of bibliography and the second argument creates the header for the bibliography.
+\usepackage{multibib}
+\newcites{papers,submitted,preparation,chapters,posters}{{Published manuscripts},{Submitted manuscripts},{In preparation},{Book chapters},{Conference abstracts}} 
+% The next three lines seem to order the publications by year
+\makeatletter
+\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+\makeatother
+
+% Make "Marcelo Mattar' BOLD on publication entries
+\usepackage{xstring}
+\def\FormatName#1{%
+  \IfSubStr{#1}{Mattar}{\textbf{#1}}{#1}%
+}
+\usepackage{titlesec}
+%\titleformat*{\section}{\fontsize{16pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor}
+\titleformat*{\section}{\fontsize{12pt}{1em}\bodyfont\scshape\textcolor{text}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Content
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Make a footer for CV with three arguments(<left>, <center>, <right>)
+\makecvfooter
+  {\today}
+  {Marcelo G Mattar}
+  {\thepage}
+
+\begin{document}
+%%% Make a header for CV with personal data
+\makecvheader
+
+%%% Import contents
+\import{\sectiondir}{employment.tex}
+\import{\sectiondir}{education.tex}
+\import{\sectiondir}{extracurricular.tex}
+\import{\sectiondir}{honors.tex}
+\newpage
+%\import{\sectiondir}{affiliations.tex}
+\import{\sectiondir}{reviewer.tex}
+%\import{\sectiondir}{presentation.tex}
+%\import{\sectiondir}{writing.tex}
+%\import{\sectiondir}{committees.tex}
+\import{\sectiondir}{publications.tex}
+\import{\sectiondir}{conferences.tex}
+\import{\sectiondir}{invitedtalks.tex}
+
+\end{document}
