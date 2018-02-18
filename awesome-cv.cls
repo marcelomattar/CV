@@ -158,6 +158,7 @@
 % Awesome section color
 \newcounter{colorCounter}
 \def\@sectioncolor#1#2#3{%
+%\def\@sectioncolor#1{%
   {%
     \color{%
       \ifcase\value{colorCounter}%
@@ -168,6 +169,7 @@
         awesome\else%
         awesome\fi%
     } #1#2#3%
+%    } #1%
   }%
   \stepcounter{colorCounter}%
 }
@@ -402,7 +404,7 @@
     }
     \\
     \vspace{0.4mm}
-    \ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\}}
+    \ifthenelse{\isundefined{\@position}}{\vspace{2mm}}{\headerpositionstyle{\@position\\}}
     \vspace{0.4mm}
     \ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\}}
     \vspace{-0.5mm}
