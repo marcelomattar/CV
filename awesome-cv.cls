@@ -522,8 +522,10 @@
 % Define a subsection for CV
 % Usage: \cvsubsection{<subsection-title>}
 \newcommand{\cvsubsection}[1]{
+  \par\nobreak\addvspace{1.5ex}
   \phantomsection{}
   \subsectionstyle{#1}
+  \par\nobreak\addvspace{1.5ex}
 }
 
 % Define an environment for cventry
